@@ -1,48 +1,52 @@
 /* ヘッダー */
 header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 48px;
-  width: 100vw;
-  background-color: #6495ed;
-  z-index: 20;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 48px;
+    width: 100vw;
+    background-color: #6495ed;
+    z-index: 20;
 }
 
 .header_content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .app_name {
-  display: flex;
-  align-items: center;
-  font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 23px;
-  color: #ffffff;
-  margin-left: 10px; 
+    display: flex;
+    align-items: center;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 23px;
+    color: #ffffff;
+    margin-left: 10px;
 }
 
 a {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 .header_link {
-  display: flex;
-  align-items: center;
-  height: 48px;
+    display: flex;
+    align-items: center;
+    height: 48px;
+}
+
+.header_link_icon {
+    display: none;
 }
 
 .setting_icon {
-  display: flex;
-  align-items: center;
-  font-size: 25px;
-  color: #ffffff;
-  margin-right: 10px;
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    color: #ffffff;
+    margin-right: 10px;
 }
 
 /* フッター */
@@ -54,13 +58,14 @@ footer {
     width: 48px;
     background-color: #6495ed;
     z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .footer_content {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
     margin-top: 48px;
     gap: 5px;
 }
@@ -72,6 +77,18 @@ footer {
     height: 48px;
 }
 
+.footer_link_icon {
+    display: flex;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+}
+  
+.userpage_pc {
+    margin-top: auto;
+    margin-bottom: 10px;
+}
+
 .footer_icon {
     display: flex;
     justify-content: center;
@@ -80,7 +97,35 @@ footer {
     color: #ffffff;
 }
 
+.user_icon_pc {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* レスポンシブ */
 @media (max-width: 768px){
+    .user_icon_sp {
+        width: 30px;
+        height: 30px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-left: 10px;
+        display: block;
+    }
+
+    .footer_link_icon {
+        display: none;
+    }
+
+    .header_link_icon {
+        display: flex;
+        align-items: center;
+        height: 48px;
+    }
+
+    /* フッター */
     footer {
         position: fixed;
         bottom: 0;
@@ -118,3 +163,11 @@ footer {
     }
 }
 
+@media (min-width: 769px) {
+    .header_content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100vw;
+    }
+}

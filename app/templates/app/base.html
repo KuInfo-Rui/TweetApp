@@ -18,6 +18,11 @@
   {% block header %}
     <header>
       <div class="header_content">
+        <a href="{% url 'account' user.handle%}" class="header_link_icon">
+          <div>
+            <img src="{{user.icon.url}}" class="user_icon_sp">
+          </div>
+        </a>
         <a href="{% url 'home' %}" class="header_link">
           <p class="app_name">Tweet App</p>
         </a>
@@ -51,6 +56,13 @@
         <a href="{% url 'message' %}" class="footer_link">
           <div class="footer_icon">
             <i class="fa-regular fa-envelope"></i>
+          </div>
+        </a>
+      </div>
+      <div class="userpage_pc">
+        <a href="{% url 'account' user.handle%}" class="footer_link_icon">
+          <div>
+            <img src="{{user.icon.url}}" class="user_icon_pc">
           </div>
         </a>
       </div>
