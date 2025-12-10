@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  {% comment %} font-awesomeを使うためのリンク {% endcomment %}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  {% comment %} ヘッダーの文字をgoogle-fontより採用 {% endcomment %}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  {% block extra_css %}{% endblock %}
+  <title>{% block title %}tweetapp{% endblock %}</title>
+</head>
+<body>
+  {% block header %}
+    <header>
+      <div class="header_content">
+        <a href="{% url 'home' %}" class="header_link">
+          <p class="app_name">Tweet App</p>
+        </a>
+        <a href="{% url 'setting' %}" class="header_link">
+          <div class="setting_icon">
+            <i class="fa-solid fa-gear"></i>
+          </div>
+        </a>
+      </div>
+    </header>
+  {% endblock %}
+  {% block content %}{% endblock %}
+  {% block footer %}
+    <footer>
+      <div class="footer_content">
+        <a href="{% url 'home' %}" class="footer_link">
+          <div class="footer_icon">
+            <i class="fa-solid fa-house"></i>
+          </div>
+        </a>
+        <a href="{% url 'search' %}" class="footer_link">
+          <div class="footer_icon">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+        </a>
+        <a href="{% url 'notice' %}" class="footer_link">
+          <div class="footer_icon">
+            <i class="fa-solid fa-bell"></i>
+          </div>
+        </a>
+        <a href="{% url 'message' %}" class="footer_link">
+          <div class="footer_icon">
+            <i class="fa-regular fa-envelope"></i>
+          </div>
+        </a>
+      </div>
+    </footer>
+  {% endblock %}
+</body>
+</html>
