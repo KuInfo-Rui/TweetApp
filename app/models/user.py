@@ -30,8 +30,8 @@ class UserManager(BaseUserManager):
 
 
 def validate_birth_date(value):
-    #未来人と、故人をNGにする
-    today = datetime.date.today()
+    # 未来人と、故人をNGにする
+    today = datetime.date.today()  # noqa: DTZ011
     if value > today:
         raise ValidationError("未来の日付は入力できません。")
     if value < datetime.date(1900, 1, 1):
@@ -49,9 +49,9 @@ class User(AbstractBaseUser, PermissionsMixin):
     handle = models.CharField(
         max_length=30,
         unique=True,
-        #小文字のa~z,大文字のA~Z,数字の0~9,_しか使えないように設定
-        validators=[RegexValidator(r'^[a-zA-Z0-9_]+$')],
-        verbose_name="ハンドルネーム"
+        # 小文字のa~z,大文字のA~Z,数字の0~9,_しか使えないように設定
+        validators=[RegexValidator(r"^[a-zA-Z0-9_]+$")],
+        verbose_name="ハンドルネーム",
     )
 
     email = models.EmailField(
@@ -69,20 +69,14 @@ class User(AbstractBaseUser, PermissionsMixin):
     icon = models.ImageField(
         verbose_name="ユーザーアイコン",
         upload_to="uploads",
-        default='images/default_icon.png',
-    )
-    
-    header = models.ImageField(
-        verbose_name="ヘッダー画像",
-        upload_to="uploads",
-        default='images/default_header.jpg'
+        default="images/default_icon.png",
     )
 
-    bio = models.TextField(
-        verbose_name="自己紹介",
-        max_length=160,
-        blank=True
+    header = models.ImageField(
+        verbose_name="ヘッダー画像", upload_to="uploads", default="images/default_header.jpg"
     )
+
+    bio = models.TextField(verbose_name="自己紹介", max_length=160, blank=True)
 
     is_private = models.BooleanField(
         verbose_name="非公開設定",
