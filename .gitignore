@@ -1,0 +1,17 @@
+# 仮想環境ディレクトリ
+.venv/
+venv/
+
+# Pythonのキャッシュ
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# IDE/エディタの設定ファイル（VS Codeなど）
+.vscode/
+
+# ログファイルやDBファイル
+*.log
+*.sqlite3
+db.sqlite3
