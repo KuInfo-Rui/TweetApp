@@ -1,26 +1,32 @@
 {% load static %}
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{% static 'css/base.css' %}">
-  {% comment %} font-awesomeを使うためのリンク {% endcomment %}
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  {% comment %} ヘッダーの文字をgoogle-fontより採用 {% endcomment %}
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-  {% block extra_css %}{% endblock %}
-  <title>{% block title %}tweetapp{% endblock %}</title>
-</head>
-<body>
-  {% block header %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    {% comment %} font-awesomeを使うためのリンク {% endcomment %}
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    {% comment %} ヘッダーの文字をgoogle-fontより採用 {% endcomment %}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    {% block extra_css %}{% endblock %}
+    <title>{% block title %}tweetapp{% endblock %}</title>
+  </head>
+  <body>
+    {% block header %}
     <header>
       <div class="header_content">
         <a href="{% url 'account' user.handle%}" class="header_link_icon">
           <div>
-            <img src="{{user.icon.url}}" class="user_icon_sp">
+            <img src="{{user.icon.url}}" class="user_icon_sp" />
           </div>
         </a>
         <a href="{% url 'home' %}" class="header_link">
@@ -33,24 +39,22 @@
         </a>
       </div>
     </header>
-  {% endblock %}
-  {% block content %}{% endblock %}
-  {% block footer %}
+    {% endblock %} {% block content %}{% endblock %} {% block footer %}
     <footer>
       <div class="footer_content">
         <a href="{% url 'home' %}" class="footer_link">
           <div class="footer_icon">
-            <i class="fa-solid fa-house"></i>
+            <i class="fa-regular fa-house"></i>
           </div>
         </a>
         <a href="{% url 'search' %}" class="footer_link">
           <div class="footer_icon">
-            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-regular fa-magnifying-glass"></i>
           </div>
         </a>
         <a href="{% url 'notice' %}" class="footer_link">
           <div class="footer_icon">
-            <i class="fa-solid fa-bell"></i>
+            <i class="fa-regular fa-bell"></i>
           </div>
         </a>
         <a href="{% url 'message' %}" class="footer_link">
@@ -62,11 +66,11 @@
       <div class="userpage_pc">
         <a href="{% url 'account' user.handle%}" class="footer_link_icon">
           <div>
-            <img src="{{user.icon.url}}" class="user_icon_pc">
+            <img src="{{user.icon.url}}" class="user_icon_pc" />
           </div>
         </a>
       </div>
     </footer>
-  {% endblock %}
-</body>
+    {% endblock %}
+  </body>
 </html>

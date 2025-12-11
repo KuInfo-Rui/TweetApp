@@ -3,6 +3,7 @@ from django.core.exceptions import FieldDoesNotExist
 
 from .models.user import User
 
+
 def _has_field(model, name: str) -> bool:
     try:
         model._meta.get_field(name)
@@ -13,6 +14,7 @@ def _has_field(model, name: str) -> bool:
 
 def _keep_existing(model, names):
     return [n for n in names if _has_field(model, n)]
+
 
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
@@ -27,11 +29,7 @@ class UserAdmin(admin.ModelAdmin):
         "is_superuser",
     ]
     list_display = tuple(
-        name
-        for name in base_list_display
-        if (
-            name in {"display_name"} or _has_field(User, name)
-        )
+        name for name in base_list_display if (name in {"display_name"} or _has_field(User, name))
     )
 
     list_filter = tuple(_keep_existing(User, ["is_active", "is_staff", "is_superuser"]))
@@ -40,8 +38,11 @@ class UserAdmin(admin.ModelAdmin):
 
     # 編集画面の項目
     fieldsets = (
-        (None, {"fields": tuple(_keep_existing(User, ["username", "email", "password", "handle"]))}),
-        ("Profile", {"fields": tuple(_keep_existing(User, ["icon", "bio"]))}),
+        (
+            None,
+            {"fields": tuple(_keep_existing(User, ["username", "email", "password", "handle"]))},
+        ),
+        ("Profile", {"fields": tuple(_keep_existing(User, ["icon", "header", "bio"]))}),
         (
             "Permissions",
             {

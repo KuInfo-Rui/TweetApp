@@ -1,0 +1,47 @@
+[dependency-groups]
+dev = ["django-stubs", "pre-commit", "ruff"]
+
+[project]
+authors = [{ name = "DeMiA inc." }]
+dependencies = [
+    "django[argon2]",
+    "gunicorn",
+    "python-dotenv",
+]
+description = ""
+name = "ShareVids"
+readme = "README.md"
+requires-python = ">=3.12,<4.0"
+version = "0.1.0"
+
+[tool.coverage.report]
+skip_empty = true
+
+[tool.coverage.run]
+branch = true
+omit = ["*/admin.py", "*/test*.py", "*/tests/*", "manage.py"]
+
+[tool.django-stubs]
+django_settings_module = "ShareVids.settings"
+
+[tool.mypy]
+plugins = ["mypy_django_plugin.main"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+ignore = ["SIM105"]
+select = ["A", "B", "DJ", "DTZ", "E", "F", "G", "LOG", "N", "W"]
+
+[tool.ruff.lint.flake8-builtins]
+builtins-ignorelist = ["id"]
+
+[tool.ruff.lint.isort]
+combine-as-imports = true
+
+[tool.ruff.lint.per-file-ignores]
+"**/management/commands/*" = ["T20"]
+"**/migrations/*" = ["E501"]
+"scripts/**" = ["T20"]
