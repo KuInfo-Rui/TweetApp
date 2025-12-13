@@ -1,0 +1,10 @@
+.tweets {
+  margin-top: 48px;
+}
+
+.poster_icon {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+}

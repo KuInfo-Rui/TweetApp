@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.core.exceptions import FieldDoesNotExist
 
 from .models.user import User
+from .models.tweet import Tweet
 
 
 def _has_field(model, name: str) -> bool:
@@ -40,7 +41,13 @@ class UserAdmin(admin.ModelAdmin):
     fieldsets = (
         (
             None,
-            {"fields": tuple(_keep_existing(User, ["username", "email", "password", "handle"]))},
+            {"fields": tuple(_keep_existing(User, [
+                "username",
+                "email",
+                "password",
+                "handle",
+                "birth_date"
+            ]))},
         ),
         ("Profile", {"fields": tuple(_keep_existing(User, ["icon", "header", "bio"]))}),
         (
@@ -72,3 +79,12 @@ class UserAdmin(admin.ModelAdmin):
             return full
 
         return getattr(obj, "username", "") or getattr(obj, "email", "") or str(obj)
+
+
+@admin.register(Tweet)
+class TweetAdmin(admin.ModelAdmin):
+    list_display = ("id", "tweet_content", "tweet_by", "tweet_at")
+    list_filter = ("tweet_at", "tweet_by")
+    search_fields = ("tweet_by__username", "tweet_by__email")
+    autocomplete_fields = ("tweet_by",)
+    date_hierarchy = "tweet_at"
