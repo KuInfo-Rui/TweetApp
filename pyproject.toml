@@ -45,3 +45,4 @@ combine-as-imports = true
 "**/management/commands/*" = ["T20"]
 "**/migrations/*" = ["E501"]
 "scripts/**" = ["T20"]
+"*.html" = ["E501"]

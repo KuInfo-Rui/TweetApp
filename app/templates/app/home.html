@@ -1,15 +1,23 @@
 {% extends "app/base.html" %} {% load static %} {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/home.css' %}" />
 {% endblock %} {% block content %}
-<div class="tweets">
+<div class="all_tweets">
   {% for t in tweets %}
   <div class="tweet">
-    <div class="poster_info">
+    <a href="{% url 'account' t.tweet_by.handle %}">
       <img src="{{ t.tweet_by.icon.url }}" class="poster_icon" />
-      <div class="poster_username">{{t.tweet_by.username}}</div>
-      <div class="poster_handle">{{t.tweet_by.handle}}</div>
+    </a>
+    <div class="text_content">
+      <div class="poster_info">
+        <a href="{% url 'account' t.tweet_by.handle %}">
+          <div class="poster_username">{{t.tweet_by.username}}</div>
+        </a>
+        <a href="{% url 'account' t.tweet_by.handle %}">
+          <div class="poster_handle">@{{t.tweet_by.handle}}</div>
+        </a>
+      </div>
+      <div class="tweet_content">{{t.tweet_content}}</div>
     </div>
-    <div class="tweet_content">{{t.tweet_content}}</div>
   </div>
   {% endfor %}
 </div>

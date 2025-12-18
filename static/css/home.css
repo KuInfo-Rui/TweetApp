@@ -1,10 +1,52 @@
-.tweets {
-  margin-top: 48px;
+.all_tweets {
+  margin-top: 50px;
+}
+
+.tweet {
+  margin-top: 5px;
+  border-bottom: 1px solid #808080;
+  display: flex;
 }
 
 .poster_icon {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   object-fit: cover;
   border-radius: 50%;
+  margin-right: 5px;
+}
+
+.poster_info {
+  display: flex;
+  gap: 3px;
+}
+
+.text_content {
+  display: flex;
+  flex-direction: column;
+}
+
+.poster_username {
+  font-size: 20px;
+  color: #000000;
+}
+
+.poster_handle {
+  font-size: 15px;
+  color: #808080;
+  margin-top: 3px;
+}
+
+.tweet_content {
+  font-size: 20px;
+  /* 端まで来たら単語を切らずに改行させる */
+  overflow-wrap: break-word;
+  /* Enterによる改行を認識 */
+  white-space: pre-wrap;
+}
+
+@media (min-width: 769px) {
+  .all_tweets {
+    margin-left: 50px;
+  }
 }
