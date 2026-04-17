@@ -1,3 +1,3 @@
-from tweet_form import TweetForm
+from .tweet_form import TweetForm
 
 __all__ = ["TweetForm"]

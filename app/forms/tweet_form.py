@@ -1,5 +1,4 @@
 from django import forms
-
 from ..models.tweet import Tweet
 
 
@@ -9,6 +8,7 @@ class TweetForm(forms.ModelForm):
         fields = ["tweet_content"]
 
     tweet_content = forms.CharField(
+        label="",
         max_length=140,
         widget=forms.Textarea(
             attrs={

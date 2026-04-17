@@ -1,16 +1,32 @@
-{% extends "app/base.html" %}
-{% load static %}
-{% block extra_css%}
+{% extends "app/base.html" %} {% load static %} {% block extra_css%}
 <link rel="stylesheet" href="{% static 'css/account.css' %}" />
-{% endblock %}
-{% block header %}
+{% endblock %} {% block header %}
 <img src="{{profile_user.header.url}}" class="profile_header" />
-{% endblock %}
-{% block content %}
+{% endblock %} {% block content %}
 <div class="introduce">
   <img src="{{profile_user.icon.url}}" class="profile_icon" />
   <div class="profile_username">{{profile_user.username}}</div>
   <div class="profile_handle">@{{profile_user.handle}}</div>
   <div class="profile_bio">{{profile_user.bio}}</div>
+</div>
+<div class="all_tweets">
+  {% for t in tweets %}
+  <div class="tweet">
+    <a href="{% url 'account' t.tweet_by.handle %}">
+      <img src="{{ t.tweet_by.icon.url }}" class="poster_icon" />
+    </a>
+    <div class="text_content">
+      <div class="poster_info">
+        <a href="{% url 'account' t.tweet_by.handle %}">
+          <div class="poster_username">{{t.tweet_by.username}}</div>
+        </a>
+        <a href="{% url 'account' t.tweet_by.handle %}">
+          <div class="poster_handle">@{{t.tweet_by.handle}}</div>
+        </a>
+      </div>
+      <div class="tweet_content">{{t.tweet_content}}</div>
+    </div>
+  </div>
+  {% endfor %}
 </div>
 {% endblock %}

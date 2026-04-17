@@ -1,11 +1,12 @@
 from django.urls import path
-from app.views import(
+from app.views import (
     account,
     home,
     message,
     notice,
     search,
     setting,
+    tweet_create,
 )
 
 urlpatterns = [
@@ -15,4 +16,5 @@ urlpatterns = [
     path("message/", message, name="message"),
     path("setting/", setting, name="setting"),
     path("account/<str:handle>/", account, name="account"),
+    path("tweet_form/", tweet_create, name="tweet_form"),
 ]

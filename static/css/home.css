@@ -45,6 +45,26 @@
   white-space: pre-wrap;
 }
 
+.new_tweet_button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #6495ed;
+}
+
+.new_tweet_icon {
+  font-weight: bold;
+  color: #ffffff;
+  font-size: 40px;
+  margin-bottom: 5px;
+}
+
 @media (min-width: 769px) {
   .all_tweets {
     margin-left: 50px;
