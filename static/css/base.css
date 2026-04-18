@@ -92,7 +92,7 @@ footer {
   display: flex;
   justify-content: center;
   margin: auto 0;
-  font-size: 25px;
+  font-size: 30px;
   color: #ffffff;
 }
 
@@ -101,6 +101,15 @@ footer {
   height: 30px;
   object-fit: cover;
   border-radius: 50%;
+}
+
+/* google-fontsで導入してるアイコンのcss */
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24,
 }
 
 /* レスポンシブ */
@@ -161,6 +170,7 @@ footer {
     color: #ffffff;
   }
 }
+
 
 @media (min-width: 769px) {
   .header_content {

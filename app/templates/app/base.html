@@ -19,6 +19,8 @@
       rel="stylesheet"
     />
 
+    {% comment %} font awesomeじゃ課金が必要っぽいので無料で使えるgoogle-fontsでアイコンを描画する {% endcomment %}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     {% block extra_css %}{% endblock %}
 
     <title>{% block title %}tweetapp{% endblock %}</title>
@@ -39,7 +41,7 @@
         </a>
         <a href="{% url 'setting' %}" class="header_link">
           <div class="setting_icon">
-            <i class="fa-solid fa-gear"></i>
+            <span class="material-symbols-outlined" style="font-size: 36px;">settings</span>
           </div>
         </a>
       </div>
@@ -49,22 +51,22 @@
       <div class="footer_content">
         <a href="{% url 'home' %}" class="footer_link">
           <div class="footer_icon">
-            <i class="fa-regular fa-house"></i>
+            <span class="material-symbols-outlined" style="font-size: 36px;">home</span>
           </div>
         </a>
         <a href="{% url 'search' %}" class="footer_link">
           <div class="footer_icon">
-            <i class="fa-regular fa-magnifying-glass"></i>
+            <span class="material-symbols-outlined" style="font-size: 36px;">search</span>
           </div>
         </a>
         <a href="{% url 'notice' %}" class="footer_link">
           <div class="footer_icon">
-            <i class="fa-regular fa-bell"></i>
+            <span class="material-symbols-outlined" style="font-size: 36px;">notifications</span>
           </div>
         </a>
         <a href="{% url 'message' %}" class="footer_link">
           <div class="footer_icon">
-            <i class="fa-regular fa-envelope"></i>
+            <span class="material-symbols-outlined" style="font-size: 36px;">mail</span>
           </div>
         </a>
       </div>
