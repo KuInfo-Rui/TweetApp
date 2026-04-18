@@ -1,9 +1,13 @@
-{% extends "app/base.html" %} {% load static %} {% block extra_css %}
+{% extends "app/base.html" %}
+{% load static %}
+{% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/tweet_form.css' %}" />
-{%endblock %} {% block content %}
+{%endblock %}
+{% block content %}
 <div class="tweet_form">
   <form method="POST">
-    {% csrf_token %} {{ form.as_p }}
+    {% csrf_token %}
+    {{ form.as_p }}
     <button type="submit" class="submit_button">ツイート</button>
   </form>
 </div>
