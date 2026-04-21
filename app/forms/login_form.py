@@ -18,10 +18,11 @@ class TweetAppLoginForm(AuthenticationForm):
     )
 
     password = forms.CharField(
+        label="パスワード",
         widget=forms.PasswordInput(
             attrs={
                 "class": "form-control",
                 "placeholder": "パスワードを入力してください",
             }
-        )
+        ),
     )

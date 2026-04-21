@@ -1,16 +1,16 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/top.css' %}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Zen+Maru+Gothic:wght@400;700&display=swap" rel="stylesheet">
-    <title>TweetApp_login</title>
+    <title>TweetApp</title>
 </head>
 <body>
     <header>
@@ -20,13 +20,13 @@
         </a>
       </div>
     </header>
-    <div class="login_title">ログイン</div>
-    <form method="post" class="login_form">
-        <div class="input_area">
-            {% csrf_token %}
-            {{ form.as_p }}
-        </div>
-        <button type="submit" class="login_button">ログイン</button>
-    </form>
+    <div class="welcome_message">
+        <h2>Tweet App へようこそ！！</h2>
+        <h4></h4>
+    </div>
+    <div>
+        <div>ログインするなら</div>
+        <a href="{% url 'login' %}">こちら</a>
+    </div>
 </body>
 </html>

@@ -1,0 +1,52 @@
+.welcome_message {
+    margin-top: 64px;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+/* ヘッダーの設定 */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 48px;
+  width: 100vw;
+  background-color: #6495ed;
+  z-index: 20;
+}
+
+.header_content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header_link {
+  display: flex;
+  align-items: center;
+  height: 48px;
+}
+
+.app_name {
+  display: flex;
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 23px;
+  color: #ffffff;
+  margin-left: 10px;
+}
+
+@media (min-width: 769px) {
+  .header_content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100vw;
+  }
+}

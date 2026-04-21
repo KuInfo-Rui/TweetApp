@@ -11,6 +11,7 @@ from app.views import (
     search,
     setting,
     tweet_create,
+    top,
 )
 
 urlpatterns = [
@@ -29,4 +30,5 @@ urlpatterns = [
         ),
         name="login",
     ),
+    path("top/", top, name="top"),
 ]
