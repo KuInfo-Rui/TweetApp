@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Zen+Maru+Gothic:wght@400;700&display=swap" rel="stylesheet">
+    <title>TweetApp_Signup</title>
+</head>
+<body>
+    <header>
+      <div class="header_content">
+        <a href="{% url 'top' %}" class="header_link">
+          <p class="app_name">Tweet App</p>
+        </a>
+      </div>
+    </header>
+    <div class="signup_title">アカウント作成</div>
+    <form method="post" class="signup_form" novalidate>
+        <div class="input_area">
+            {% csrf_token %}
+            <p>
+                <label for="id_email">メールアドレス</label>
+                {{ form.email }}
+                {% if form.email.errors %}
+                    <div class="error-msg">{{ form.email.errors.0 }}</div>
+                {% endif %}
+            </p>
+            <p>
+                <label for="id_password1">パスワード</label>
+                {{ form.password1 }}
+            </p>
+            <p>
+                <label for="id_password2">パスワード(確認用)</label>
+                {{ form.password2 }}
+                {% if form.password1.errors %}
+                    <div class="error-msg">{{ form.password1.errors.0 }}</div>
+                {% endif %}
+                {% if form.password2.errors %}
+                    <div class="error-msg">{{ form.password2.errors.0 }}</div>
+                {% endif %}
+            </p>
+        </div>
+        <button type="submit" class="signup_button">登録</button>
+    </form>
+</body>
+</html>

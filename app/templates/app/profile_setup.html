@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/setup.css' %}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Zen+Maru+Gothic:wght@400;700&display=swap" rel="stylesheet">
+    <title>TweetApp_ProfileSetup</title>
+</head>
+<body>
+    <header>
+      <div class="header_content">
+        <a href="{% url 'top' %}" class="header_link">
+          <p class="app_name">Tweet App</p>
+        </a>
+      </div>
+    </header>
+    <div class="setup_title">ユーザー情報の入力</div>
+    <form method="post" class="setup_form">
+        <div class="input_area">
+            {% csrf_token %}
+            <p>
+                <label for="id_username">ユーザーネーム</label>
+                {{ form.username }}
+                {% if form.username.errors %}
+                    <div class="error-msg">{{ form.username.errors.0 }}</div>
+                {% endif %}
+            </p>
+            <p>
+                <label for="id_birth_date">生年月日</label>
+                {{ form.birth_date }}
+                {% if form.birth_date.errors %}
+                    <div class="error-msg">{{ form.birth_date.errors.0 }}</div>
+                {% endif %}
+            </p>
+            <p>
+                <label for="id_handle">ユーザーハンドル</label>
+                {{ form.handle }}
+                {% if form.handle.errors %}
+                    <div class="error-msg">{{ form.handle.errors.0 }}</div>
+                {% endif %}
+            </p>
+        </div>
+        <button type="submit" class="setup_button">完了</button>
+    </form>
+</body>
+</html>

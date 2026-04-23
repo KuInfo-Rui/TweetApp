@@ -1,7 +1,8 @@
 from django.urls import path
 
-from django.contrib.auth import views as auth_views
-from .forms.login_form import TweetAppLoginForm
+from app.views.login import TweetAppLoginView
+from app.views.sign_up import SignUpView
+from app.views.profile_update import ProfileUpdateView
 
 from app.views import (
     account,
@@ -22,13 +23,8 @@ urlpatterns = [
     path("setting/", setting, name="setting"),
     path("account/<str:handle>/", account, name="account"),
     path("tweet_form/", tweet_create, name="tweet_form"),
-    path(
-        "login/",
-        auth_views.LoginView.as_view(
-            template_name="app/login.html",
-            authentication_form=TweetAppLoginForm,
-        ),
-        name="login",
-    ),
+    path("login/", TweetAppLoginView.as_view(), name="login"),
     path("top/", top, name="top"),
+    path("signup/", SignUpView.as_view(), name="signup"),
+    path("profile_setup/<int:pk>/", ProfileUpdateView.as_view(), name="profile_setup"),
 ]
