@@ -1,2 +1,5 @@
 {% extends "app/base.html" %}
 {% load static %}
+{% block content %}
+    <a href="{% url 'profile_change' request.user.pk %}">プロフィールの変更</a>
+{% endblock %}

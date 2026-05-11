@@ -111,3 +111,9 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.username
+
+    def is_default_icon(self):  # デフォルトのアイコンかどうかを判定する
+        return self.icon.name == "images/default_icon.png"
+
+    def is_default_header(self):  # デフォルトのヘッダーかどうかを判定する
+        return self.header.name == "images/default_header.jpg"

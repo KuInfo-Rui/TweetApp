@@ -1,0 +1,108 @@
+.change_form {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+.change_title {
+    margin-top: 96px;
+    margin-bottom: 24px;
+    font-size: 60px;
+    font-family: "Zen Maru Gothic", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    text-align: center;
+}
+
+.input_area {
+    margin: 36px;
+}
+
+.form-control {
+    width: 300px;
+    height: 50px;
+    font-size: 25px;
+    border-radius: 5px;
+    border: 1px solid #353535;
+}
+
+.image_input_form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 550px;
+    margin: 15px auto;
+}
+
+.image_label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 50px;
+    background-color: #6495ed;
+    color: #ffffff;
+    font-size: 20px;
+    font-family: "Zen Maru Gothic", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    border-radius: 15px;
+    border: 3px solid #4c71b6;
+    margin-right: 80px;
+}
+
+.recommend {
+    justify-content: center;
+    font-family: "Zen Maru Gothic", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+::placeholder {
+    font-size: 15px;
+}
+
+form p {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: right;
+    width: 550px;
+    margin: 15px auto;
+}
+
+form label {
+    font-size: 20px;
+    font-family: "Zen Maru Gothic", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.change_button {
+    width: 150px;
+    height: 60px;
+    background-color: #6495ed;
+    color: #ffffff;
+    font-size: 20px;
+    font-family: "Zen Maru Gothic", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    border-radius: 15px;
+    border: 3px solid #4c71b6;
+}
+
+.input_area .error-msg {
+    color: #ea5550 !important;
+    font-weight: bold;
+}
+
+/* google-fontsで導入してるアイコンのcss */
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24,
+}

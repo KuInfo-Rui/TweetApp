@@ -99,6 +99,7 @@ footer {
 .user_icon_pc {
   width: 30px;
   height: 30px;
+  background-color: #abb1b5;
   object-fit: cover;
   border-radius: 50%;
 }
@@ -117,6 +118,7 @@ footer {
   .user_icon_sp {
     width: 30px;
     height: 30px;
+    background-color: #abb1b5;
     object-fit: cover;
     border-radius: 50%;
     margin-left: 10px;

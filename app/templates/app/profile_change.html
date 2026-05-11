@@ -1,0 +1,79 @@
+{% extends "app/base.html" %}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/profile_change.css' %}" />
+{% endblock %}
+{% block content %}
+<div class="change_title">ユーザー情報の変更</div>
+<form method="post" class="change_form">
+    <div class="input_area">
+        {% csrf_token %}
+        <p>
+            <label for="{{ form.username.id_for_label }}">ユーザー名</label>
+            {{ form.username }}
+            {% if form.username.errors %}
+                <div class="error-msg">{{ form.username.errors.0 }}</div>
+            {% endif %}
+        </p>
+        <p>
+            <label for="{{ form.handle.id_for_label }}">ハンドルネーム</label>
+            {{ form.handle }}
+            {% if form.handle.errors %}
+                <div class="error-msg">{{ form.handle.errors.0 }}</div>
+            {% endif %}
+        </p>
+        <p>
+            <div class="image_input_form">
+                <label for="{{ form.header.id_for_label }}">ヘッダー画像</label>
+                <div>
+                    <label for="{{ form.header.id_for_label }}" class="image_label">
+                        <div class="material-symbols-outlined"> photo_camera</div>
+                        <div>画像を選択</div>
+                    </label>
+                    <div style="display: none;">
+                        {{ form.header }}
+                    </div>
+                </div>
+            </div>
+            <div>
+                {% if user.is_default_header %}
+                    <p class="recommend">ヘッダーを新しく設定してみましょう</p>
+                {% endif %}
+            </div>
+            {% if form.header.errors %}
+                <div class="error-msg">{{ form.header.errors.0 }}</div>
+            {% endif %}
+        </p>
+        <p>
+            <div class="image_input_form">
+                <label for="{{ form.icon.id_for_label }}">ユーザーアイコン</label>
+                <div>
+                    <label for="{{ form.icon.id_for_label }}" class="image_label">
+                        <div class="material-symbols-outlined"> photo_camera</div>
+                        <div>画像を選択</div>
+                    </label>
+                    <div style="display: none;">
+                        {{ form.icon }}
+                    </div>
+                </div>
+            </div>
+            <div>
+                {% if user.is_default_icon %}
+                    <p class="recommend">アイコンを新しく設定してみましょう</p>
+                {% endif %}
+            </div>
+            {% if form.icon.errors %}
+                <div class="error-msg">{{ form.icon.errors.0 }}</div>
+            {% endif %}
+        </p>
+        <p>
+            <label for="{{ form.bio.id_for_label }}">自己紹介</label>
+            {{ form.bio }}
+            {% if form.bio.errors %}
+                <div class="error-msg">{{ form.bio.errors.0 }}</div>
+            {% endif %}
+        </p>
+    </div>
+    <button type="submit" class="change_button">保存する</button>
+</form>
+{% endblock %}

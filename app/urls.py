@@ -3,6 +3,7 @@ from django.urls import path
 from app.views.login import TweetAppLoginView
 from app.views.sign_up import SignUpView
 from app.views.profile_update import ProfileUpdateView
+from app.views.profile_change import ProfileChangeView
 
 from app.views import (
     account,
@@ -27,4 +28,5 @@ urlpatterns = [
     path("top/", top, name="top"),
     path("signup/", SignUpView.as_view(), name="signup"),
     path("profile_setup/<int:pk>/", ProfileUpdateView.as_view(), name="profile_setup"),
+    path("profile_change/<int:pk>/", ProfileChangeView.as_view(), name="profile_change"),
 ]

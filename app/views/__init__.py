@@ -9,6 +9,7 @@ from .login import TweetAppLoginView
 from .top import top
 from .sign_up import SignUpView
 from .profile_update import ProfileUpdateView
+from .profile_change import ProfileChangeView
 
 __all__ = [
     "account",
@@ -22,4 +23,5 @@ __all__ = [
     "top",
     "SignUpView",
     "ProfileUpdateView",
+    "ProfileChangeView",
 ]
