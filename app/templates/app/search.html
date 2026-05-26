@@ -1,2 +1,37 @@
 {% extends "app/base.html" %}
 {% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/search.css' %}">
+{% endblock %}
+{% block content %}
+    <div class="search_area">
+        <h1>サイト内検索</h1>
+        <form method="GET" action="{% url 'search' %}" class="search_form">
+            <input type="text" name='query' class="form_control">
+            <button type='submit' class="search_button">検索</button>
+        </form>
+        {% if query %}
+            <h2>「{{ query }}」の検索結果</h2>
+            {% for t in result %}
+            <div class="tweet">
+                <a href="{% url 'account' t.tweet_by.handle %}">
+                <img src="{{ t.tweet_by.icon.url }}" class="poster_icon" />
+                </a>
+                <div class="text_content">
+                <div class="poster_info">
+                    <a href="{% url 'account' t.tweet_by.handle %}">
+                    <div class="poster_username">{{t.tweet_by.username}}</div>
+                    </a>
+                    <a href="{% url 'account' t.tweet_by.handle %}">
+                    <div class="poster_handle">@{{t.tweet_by.handle}}</div>
+                    </a>
+                </div>
+                <div class="tweet_content">{{t.tweet_content}}</div>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <div class="comment">自由にツイートを検索してみましょう！</div>
+        {% endif %}
+    </div>
+{% endblock %}

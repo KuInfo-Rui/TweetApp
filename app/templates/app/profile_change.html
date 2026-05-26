@@ -5,7 +5,7 @@
 {% endblock %}
 {% block content %}
 <div class="change_title">ユーザー情報の変更</div>
-<form method="post" class="change_form">
+<form method="post" enctype="multipart/form-data" class="change_form">
     <div class="input_area">
         {% csrf_token %}
         <p>

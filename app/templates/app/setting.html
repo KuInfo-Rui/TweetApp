@@ -1,5 +1,17 @@
 {% extends "app/base.html" %}
 {% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/setting.css' %}" />
+{% endblock %}
 {% block content %}
-    <a href="{% url 'profile_change' request.user.pk %}">プロフィールの変更</a>
+    <div class="setting_title">設定</div>
+    <div class="setting_items">
+        <a href="{% url 'profile_change' request.user.pk %}">プロフィールの変更</a>
+        <div>
+            <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="logout_button">ログアウト</button>
+            </form>
+        </div>
+    </div>
 {% endblock %}

@@ -1,0 +1,41 @@
+.setting_title {
+    margin-top: 96px;
+    margin-bottom: 24px;
+    font-size: 60px;
+    font-family: "Zen Maru Gothic", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    font-size: 30px;
+    font-family: "Zen Maru Gothic", sans-serif;
+    font-style: normal;
+    text-align: center;
+    color: #000000;
+}
+
+.setting_items {
+    margin-top: 25px;
+}
+
+.logout_button {
+    all: unset;
+    cursor: pointer;
+    /* all: unsetでボタンにデフォルトでついてるcssを剥がす。ただ、カーソルが当たるとポインターになるのだけは保持 */
+    color: #000000;
+    font-size: 30px;
+    font-family: "Zen Maru Gothic", sans-serif;
+    font-style: normal;
+    text-align: center;
+    margin: 20px 0;
+}
+
+@media (min-width: 769px) {
+  .setting_items {
+    margin-left: 50px;
+  }
+}
+

@@ -5,6 +5,8 @@ from app.views.sign_up import SignUpView
 from app.views.profile_update import ProfileUpdateView
 from app.views.profile_change import ProfileChangeView
 
+from django.contrib.auth import views as auth_views
+
 from app.views import (
     account,
     home,
@@ -25,6 +27,7 @@ urlpatterns = [
     path("account/<str:handle>/", account, name="account"),
     path("tweet_form/", tweet_create, name="tweet_form"),
     path("login/", TweetAppLoginView.as_view(), name="login"),
+    path("logout/", auth_views.LogoutView.as_view(), name="logout"),
     path("top/", top, name="top"),
     path("signup/", SignUpView.as_view(), name="signup"),
     path("profile_setup/<int:pk>/", ProfileUpdateView.as_view(), name="profile_setup"),
